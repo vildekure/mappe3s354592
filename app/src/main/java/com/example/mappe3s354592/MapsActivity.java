@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Oslo and move the camera
         LatLng oslo = new LatLng(59.91, 10.75);
         mMap.addMarker(new MarkerOptions().position(oslo).title("Oslo"));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(oslo));
     }
 
@@ -55,7 +55,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapClick(@NonNull LatLng latLng) {
         // her kan man hente ut klikk fra kart
         double latVar = latLng.latitude; //Koordinering
-        double longVar = latLng.longitude; //koord 2
+        double longVar = latLng.longitude; //koordinat 2
+
+        LatLng marker = new LatLng(latVar,longVar);
+        mMap.addMarker(new MarkerOptions().position(marker).title("Test Marker"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
     }
 
