@@ -9,6 +9,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.mappe3s354592.databinding.ActivityMapsBinding;
@@ -46,7 +47,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Oslo and move the camera
         LatLng oslo = new LatLng(59.91, 10.75);
-        mMap.addMarker(new MarkerOptions().position(oslo).title("Oslo"));
+        mMap.addMarker(new MarkerOptions()
+                .position(oslo)
+                .title("Oslo")
+                .snippet("Dette er Oslo"));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(oslo));
     }
